@@ -22,8 +22,8 @@ def register():
     functions_db.reg(login, password)
     if functions_db.reg(login, password):
         return make_response('Пользователь зарегистрирован')
-    # else:
-    #     return make_response('Ошибка при регистрации пользователя')
+    else:
+        return make_response('Ошибка при регистрации пользователя')
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
