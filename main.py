@@ -9,10 +9,6 @@ app.config["JWT_SECRET_KEY"] = "super-secret"
 jwt = JWTManager(app)
 
 
-def remove_webhook():
-    pass
-
-
 @app.route('/', methods=["GET"])
 def index():
     # app.remove_webhook()
