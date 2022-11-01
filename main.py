@@ -9,6 +9,16 @@ app.config["JWT_SECRET_KEY"] = "super-secret"
 jwt = JWTManager(app)
 
 
+def remove_webhook():
+    pass
+
+
+@app.route('/', methods=["GET"])
+def index():
+    # app.remove_webhook()
+    # bot.set_webhook(url="https://{}.herokuapp.com/{}".format(app_name, token))
+    return "Hello from Heroku!", 200
+
 @app.route('/reg', methods=['POST'])
 def register():
     login = str(request.json.get("login", None))
