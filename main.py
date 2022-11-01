@@ -19,6 +19,7 @@ def index():
 def register():
     login = str(request.json.get("login", None))
     password = str(request.json.get("password", None))
+    functions_db.reg(login, password)
     if functions_db.reg(login, password):
         return make_response('Пользователь зарегистрирован')
     else:
