@@ -20,7 +20,7 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS "links" (
 	"link"	TEXT NOT NULL UNIQUE,
 	"short_link"	TEXT NOT NULL,
 	"access"	INTEGER NOT NULL,
-	"redirect_count"	INTEGER NOT NULL,
+	"redirect_count"	INTEGER NOT NULL DEFAULT 0,
 	"user_id"	INTEGER NOT NULL,
 	PRIMARY KEY("id" AUTOINCREMENT)
 );''')
