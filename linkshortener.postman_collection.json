@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "3920c75c-2ab6-4617-b80f-e3cad3bbda4d",
+		"name": "linkshortener",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23338170"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"user1\",\r\n    \"password\": \"124\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://linkshortner86.herokuapp.com/reg",
+					"protocol": "https",
+					"host": [
+						"linkshortner86",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Регистрация",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"user6\",\r\n    \"password\": \"666\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/reg",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"reg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Авторизация",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"user5\",\r\n    \"password\": \"555\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/auth",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление ссылки",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2ODU3NTA3OCwianRpIjoiOWI1YjdmOTQtMDVhMC00YTRkLTg5MWYtZTkyYTIwZjE4YjY3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXI1IiwibmJmIjoxNjY4NTc1MDc4LCJleHAiOjE2Njg1NzU5Nzh9.3bz18ZD2qBMrDRiVGyaqtFGso3ueJfMjiW2QyUL80b0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"link\": \"\",\r\n    \"short_link\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/add_link",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"add_link"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/aaaa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3MTAyMDAzMSwianRpIjoiYWJiNjcxZWMtODZmMy00MDQ2LWJjZDMtNGNkNjg5NWMwNjQ5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXI1IiwibmJmIjoxNjcxMDIwMDMxLCJleHAiOjE2NzEwMjA5MzF9.3padSzUqtPZRg0t6pSV_0zwL68qnmdH5TRmcmpci7ug",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/qqqq",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"qqqq"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Список ссылок пользователя",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2OTc4MTE1MywianRpIjoiNWI1YWJiODYtM2Y0My00OTRhLTliYzctYjkyZGQyOTk0ZmQyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXI1IiwibmJmIjoxNjY5NzgxMTUzLCJleHAiOjE2Njk3ODIwNTN9.eQJnufwMwvGKl9Icfej5r4nUfsVOXEhhb8tx5-OkzYY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/list",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление ссылки",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2OTc4MjU4OCwianRpIjoiYTgxN2ExYjEtZDA3OS00OTVlLTk0NDAtY2MzZTdhN2YyZWM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXI1IiwibmJmIjoxNjY5NzgyNTg4LCJleHAiOjE2Njk3ODM0ODh9.5xaBJJeXKejt_ZwHwpwMG3_2wAhsw0IIbznElvNugKU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"short_link\": \"ww\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/del",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"del"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменение псевдонима",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3MTAxNzgzNSwianRpIjoiMTc5ZTVlMmItNjdiYS00NzM2LTg2MjMtN2ZlYmIzNjBkYWViIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXI1IiwibmJmIjoxNjcxMDE3ODM1LCJleHAiOjE2NzEwMTg3MzV9.IU0J8WacLMAtMjy5Axr87x_13hP1M5_PBof7Sz1hEJA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"short_link\": \"mhn gbfvdc\",\r\n    \"new_short\": \"aaaa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/change",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"change"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменение уровня доступа",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3MTAxNjY4OCwianRpIjoiOTM2MGQ5MzEtMjJjZS00NTc0LThjZjgtZTY2MjgyNWQyMzg0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXI1IiwibmJmIjoxNjcxMDE2Njg4LCJleHAiOjE2NzEwMTc1ODh9.rgM5ZDOzW2Qh2gBp6Ju61lTnXFlCWT1bwLD3c2uFXrU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"short_link\": \"mhn gbfvdc\",\r\n    \"access\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/change_access",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"change_access"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
