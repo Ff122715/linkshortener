@@ -65,3 +65,24 @@ def deleteLink(short_link):
 def changeShortLink(new_short_link, short_link, login):
     cursor.execute('UPDATE links SET short_link=? WHERE user_id=? AND short_link=?', (new_short_link, login, short_link))
     connect.commit()
+
+
+# поиск логина по короткой ссылке
+def searchUserOnLink(short_link):
+    return cursor.execute('SELECT user_id FROM links WHERE short_link=?', (short_link,)).fetchone()[0]
+
+
+def findAccessLink(short_link):
+    return cursor.execute('SELECT access FROM links WHERE short_link=?', (short_link,)).fetchone()[0]
+
+
+def changeAccess(short_link, user, access):
+    owner = searchUserOnLink(short_link)
+    old_access = findAccessLink(short_link)
+    if user == owner and int(access) != old_access:
+        cursor.execute('UPDATE links SET access=? WHERE user_id=? AND short_link=?', (int(access), user, short_link))
+        connect.commit()
+        return 'Доступ изменен'
+    elif int(access) == old_access:
+        return 'Это текущий доступ ссылки'
+    return 'Вы не можете изменить доступ'

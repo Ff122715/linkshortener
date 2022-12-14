@@ -3,6 +3,7 @@ from flask_jwt_extended import create_access_token, JWTManager, get_jwt_identity
 import sqlite3, uuid, hashlib, random
 from werkzeug.security import generate_password_hash, check_password_hash
 import functions_db
+import database
 
 app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = "super-secret"
@@ -49,10 +50,22 @@ def add_link():
         return make_response('Ссылка успешно сохранена')
     return make_response('error')
 
-# link = "hbgvfcvfc"
+
 @app.route('/<short_link>')
 def redirect(short_link):
-    return functions_db.redirect(short_link)
+    if functions_db.findAccessLink(short_link) == 1:
+        return functions_db.redirect(short_link)
+    elif functions_db.findAccessLink(short_link) == 3:
+        return checkIsOwner(short_link)
+
+
+@jwt_required()
+def checkIsOwner(short_link):
+    login = str(get_jwt_identity())
+    if functions_db.searchUserOnLink(short_link) == login:
+        return functions_db.redirect(short_link)
+    return make_response('Переход невозможен - вы не являетесь владельцем ссылки')
+
 
 @app.route('/list')
 @jwt_required()
@@ -75,8 +88,18 @@ def change():
     if new_short == '':
         new_short = hashlib.md5(short_link.encode()).hexdigest()[:random.randint(8, 12)]
     functions_db.changeShortLink(new_short, short_link, login)
-    return ''
+    return make_response('Псевдоним изменен')
+
+
+@app.route('/change_access', methods=['POST'])
+@jwt_required()
+def changeAccess():
+    login = str(get_jwt_identity())
+    short_link = str(request.json.get('short_link', None))
+    access = str(request.json.get('access', None))
+    return functions_db.changeAccess(short_link, login, access)
 
 
 if __name__ == '__main__':
+    database.create_db()
     app.run()
